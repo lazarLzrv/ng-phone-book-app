@@ -9,6 +9,7 @@ import { DataService } from '../shared/data.service';
 
 export class ListContactsComponent implements OnInit {
     listOfUsers: any[] = [];
+    searchBox:string;
 
     constructor(private dataService:DataService ) { }
 
