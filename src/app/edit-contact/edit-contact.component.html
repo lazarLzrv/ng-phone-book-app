@@ -1,0 +1,83 @@
+<div class="row mb-3">
+    <div class="col-md-12 text-right"> 
+        <a routerLink="/" class="btn btn-info">Back</a> 
+    </div>  
+</div>  
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
+        <div class="input-group mb-3"> 
+            <input 
+                type="text" 
+                class="form-control" 
+                placeholder="First Name"
+                required 
+                formControlName="firstName">   
+        </div> 
+        <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.firstName.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <div class="input-group mb-3"> 
+            <input 
+                type="text" 
+                class="form-control" 
+                formControlName="lastName" 
+                placeholder="Last Name">
+        </div> 
+        <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.lastName.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <div class="input-group mb-3"> 
+            <input 
+                type="number" 
+                class="form-control" 
+                formControlName="homeNumber" 
+                placeholder="Home Number"/>
+        </div> 
+        <div *ngIf="f.homeNumber.invalid && (f.homeNumber.dirty || f.homeNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.homeNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <div class="input-group mb-3"> 
+            <input 
+                type="number" 
+                class="form-control" 
+                formControlName="officeNumber" 
+                placeholder="Office Number"/>
+        </div> 
+        <div *ngIf="f.officeNumber.invalid && (f.officeNumber.dirty || f.officeNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.officeNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <div class="input-group mb-3"> 
+            <input 
+                type="number" 
+                class="form-control" 
+                formControlName="workNumber" 
+                placeholder="Work Number"/>
+        </div> 
+        <div *ngIf="f.workNumber.invalid && (f.workNumber.dirty || f.workNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.workNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+       
+        <div class="input-group mb-3"> 
+            <input 
+            type="submit"
+            [disabled]="!contactForm.valid" 
+            class="form-control btn btn-success" 
+            value="Update">
+        </div>
+    </form>
+    
+    

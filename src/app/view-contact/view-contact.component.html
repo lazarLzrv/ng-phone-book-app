@@ -1,0 +1,35 @@
+<div class="row mb-3">
+    <div class="col-md-12 text-right"> 
+        <a routerLink="/" class="btn btn-info">Back</a> 
+    </div>  
+</div>  
+<h2>{{unserInfo.firstName}} {{unserInfo.lastName}}</h2> 
+<table class="table table-sm">
+    <tr>
+        <td>Home Number:</td>
+        <td>{{unserInfo.phoneNumbers.homeNumber}}</td> 
+    </tr>
+    <tr> 
+        <td>Office Number:</td>
+        <td>{{unserInfo.phoneNumbers.officeNumber}}</td>
+    </tr>
+    <tr> 
+        <td>Work Number:</td>
+        <td>{{unserInfo.phoneNumbers.workNumber}}</td>
+    </tr>
+</table> 
+<button 
+    type="button" 
+    class="btn btn-primary" 
+    (click)="editUser()">
+    Edit
+</button>
+
+<button 
+    type="button" 
+    class="btn btn-danger float-right"
+    (click)="deleteUser()">
+    Delete
+</button>
+
+ 
