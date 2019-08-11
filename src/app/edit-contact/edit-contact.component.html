@@ -1,8 +1,7 @@
-<div class="row mb-3">
-    <div class="col-md-12 text-right"> 
-        <a routerLink="/" class="btn btn-info">Back</a> 
-    </div>  
-</div>  
+<app-back-btn></app-back-btn>
+<div *ngIf="showSysMsg" class="alert alert-success" role="alert">
+    You successfully edited {{personInfo.firstName}} {{personInfo.lastName}} contacts !
+</div>
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
         <div class="input-group mb-3"> 
             <input 
@@ -31,12 +30,15 @@
                 This field is required.
             </div> 
         </div>
+        <label for="homeNumber">
+            Home Number:
+        </label>
         <div class="input-group mb-3"> 
             <input 
                 type="number" 
                 class="form-control" 
-                formControlName="homeNumber" 
-                placeholder="Home Number"/>
+                id="homeNumber" 
+                formControlName="homeNumber"/>
         </div> 
         <div *ngIf="f.homeNumber.invalid && (f.homeNumber.dirty || f.homeNumber.touched)"
             class="alert alert-danger"> 
@@ -44,12 +46,15 @@
                 This field is required.
             </div> 
         </div>
+        <label for="officeNumber">
+                Office Number:
+        </label>
         <div class="input-group mb-3"> 
             <input 
                 type="number" 
                 class="form-control" 
-                formControlName="officeNumber" 
-                placeholder="Office Number"/>
+                id="officeNumber" 
+                formControlName="officeNumber"/>
         </div> 
         <div *ngIf="f.officeNumber.invalid && (f.officeNumber.dirty || f.officeNumber.touched)"
             class="alert alert-danger"> 
@@ -57,12 +62,15 @@
                 This field is required.
             </div> 
         </div>
+        <label for="workNumber">
+            Work Number:
+        </label>
         <div class="input-group mb-3"> 
             <input 
                 type="number" 
                 class="form-control" 
-                formControlName="workNumber" 
-                placeholder="Work Number"/>
+                id="workNumber" 
+                formControlName="workNumber"/>
         </div> 
         <div *ngIf="f.workNumber.invalid && (f.workNumber.dirty || f.workNumber.touched)"
             class="alert alert-danger"> 

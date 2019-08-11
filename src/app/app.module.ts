@@ -11,6 +11,7 @@ import { CreateContactComponent } from './create-contact/create-contact.componen
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BackBtnComponent } from './back-btn/back-btn.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ListContactsComponent, 
     CreateContactComponent, 
     ViewContactComponent, 
-    EditContactComponent
+    EditContactComponent, BackBtnComponent
   ],
   imports: [
     BrowserModule,

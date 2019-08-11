@@ -11,7 +11,7 @@ import { PersonInfo } from '../shared/personInfo.model';
 export class CreateContactComponent implements OnInit {
     contactForm: FormGroup; 
     personInfo: PersonInfo; 
-  
+    showSysMsg:boolean = false;
     userId:number; 
 
     constructor(private formBuilder: FormBuilder, 
@@ -48,6 +48,9 @@ export class CreateContactComponent implements OnInit {
         } 
 
         this.dataService.addToList(this.personInfo) 
-        this.reset()
+        this.showSysMsg = true;
+        
+        setTimeout(()=>{this.showSysMsg = false;this.reset(); }, 3000);
+        
     }  
 }

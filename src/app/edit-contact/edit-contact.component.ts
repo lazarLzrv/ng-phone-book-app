@@ -12,7 +12,9 @@ import { PersonInfo } from '../shared/personInfo.model';
 
 export class EditContactComponent implements OnInit {
     contactForm: FormGroup; 
-    personInfo: PersonInfo;  
+    personInfo: PersonInfo;
+ 
+    showSysMsg:boolean = false;  
 
     userId:number;
     status:boolean;
@@ -52,6 +54,8 @@ export class EditContactComponent implements OnInit {
         } 
 
         this.dataService.updateUser(this.personInfo, this.userId)  
-        this.router.navigate(['/list']);
+        this.showSysMsg = true;
+        setTimeout(()=>{this.showSysMsg = false;this.router.navigate(['/list']); }, 3000);
+       
     }  
 }

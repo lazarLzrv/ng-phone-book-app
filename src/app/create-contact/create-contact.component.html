@@ -1,8 +1,8 @@
-<div class="row mb-3">
-    <div class="col-md-12 text-right"> 
-        <a routerLink="/" class="btn btn-info">Back</a> 
-    </div>  
-</div>  
+<app-back-btn></app-back-btn>
+<div *ngIf="showSysMsg" class="alert alert-success" role="alert">
+    You successfully create contacts for {{personInfo.firstName}} {{personInfo.lastName}} !<br>
+    Create a new contact or go back to the list with all contacts!
+</div>
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
     <div class="input-group mb-3"> 
         <input 
@@ -42,7 +42,7 @@
         class="alert alert-danger"> 
         <div *ngIf="f.homeNumber.errors.required">
             This field is required.
-        </div> 
+        </div>   
     </div>
     <div class="input-group mb-3"> 
         <input 

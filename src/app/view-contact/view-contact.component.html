@@ -1,8 +1,7 @@
-<div class="row mb-3">
-    <div class="col-md-12 text-right"> 
-        <a routerLink="/" class="btn btn-info">Back</a> 
-    </div>  
-</div>  
+<app-back-btn></app-back-btn>
+<div *ngIf="showSysMsg" class="alert alert-success" role="alert">
+    You successfully delete the contacts of {{unserInfo.firstName}} {{unserInfo.lastName}} !
+</div>
 <h2>{{unserInfo.firstName}} {{unserInfo.lastName}}</h2> 
 <table class="table table-sm">
     <tr>
@@ -20,15 +19,16 @@
 </table> 
 <button 
     type="button" 
-    class="btn btn-primary" 
+    class="btn btn-info" 
     (click)="editUser()">
-    Edit
+    <i class="fa fa-edit"></i> Edit
 </button>
 
 <button 
     type="button" 
     class="btn btn-danger float-right"
     (click)="deleteUser()">
+    <i class="fa fa-trash"></i>
     Delete
 </button>
 

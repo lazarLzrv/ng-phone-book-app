@@ -1,15 +1,23 @@
 <div class="row mb-3">
     <div class="col-7">
-        <div class="input-group"> 
-            <input 
-                type="text" 
-                class="form-control" 
-                placeholder="Search" 
-                [(ngModel)]="searchBox">
+            <div class="input-group mb-3">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Search" 
+                    [(ngModel)]="searchBox">
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        <div class="input-group">  
+            
         </div> 
     </div>
     <div class="col-5 text-right"> 
-        <a routerLink="/create-contact" class="btn btn-info">Create new</a>
+        <a routerLink="/create-contact" class="btn btn-success">
+            <i class="fa fa-address-card"></i> Create contact
+        </a>
     </div> 
 </div> 
 <table class="table text-center">
@@ -33,7 +41,7 @@
             <td> 
                 <a class="btn btn-info" 
                 [routerLink]="['/veiw-contact', i]">
-                Veiw</a> 
+                <i class="fa fa-search"></i> Veiw </a> 
             </td>
         </tr> 
     </tbody>

@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class ViewContactComponent implements OnInit {
     unserInfo:PersonInfo;
+    showSysMsg:boolean=false;
     userId:number;
 
     constructor(private dataService:DataService,
@@ -24,12 +25,17 @@ export class ViewContactComponent implements OnInit {
     }  
 
     deleteUser = () => {
-        confirm('Are You Shure !');
-        this.dataService.deleteUser(this.userId);
-        this.router.navigate(['/list']);
+        let answer = confirm('Are You Shure !');
+        if(answer){
+            this.showSysMsg = true; 
+            this.dataService.deleteUser(this.userId);
+            setTimeout(()=>{ this.router.navigate(['/list']);}, 3000);
+        }
+        
     }
 
     editUser = () => {  
         this.router.navigate(['/edit-contact', this.userId]);
     }
+ 
 }
