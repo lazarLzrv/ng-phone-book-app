@@ -1,0 +1,23 @@
+.create-btn{
+    position: absolute;
+    bottom:10px;
+    right:5px;
+    z-index: 2;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background: #17a2b8;
+    text-align: center; 
+    transition:background 0.5s;
+
+    i{
+        color: #fff;
+        margin: 0;
+        font-size: 20px;
+        line-height: 37px;
+    }
+
+    &:hover{
+        background: #ff920a;
+    }
+}

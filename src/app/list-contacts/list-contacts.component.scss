@@ -1,15 +1,59 @@
-.table{
+.input-group-text{ 
+    background: transparent;
+    border-left:none;
 
-    td {
-        vertical-align: middle;
-    }
-}
-
-.input-group-text{
-    background-color: #28a745;
     i{
         margin: 0;
         font-size: 20px;
-        color: #fff;
+        color: #ced4da;
     }
+} 
+#contact-list-wrapper{ 
+    height: 357px;
+    position: relative;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0; 
+        display: block;
+       
+    
+        li{
+            border-bottom:1px solid #ced4da;
+            padding: 5px;
+            transition: background 0.5s;
+    
+            &:hover{
+                background: #eaeaea;
+            }
+    
+            a{
+                color: #000;
+                display: block;
+    
+                &:hover{
+                    text-decoration: none;
+                }
+    
+                p{
+                    margin-bottom: 0;
+                    font-size: 20px;
+                    font-weight: 500;
+    
+                    i{
+                        color: #888888;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.form-control:focus {  
+    border-color:#ced4da;
+    outline: 0;
+    box-shadow:none;
 }

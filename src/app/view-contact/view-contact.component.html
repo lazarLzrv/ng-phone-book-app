@@ -1,35 +1,26 @@
-<app-back-btn></app-back-btn>
-<div *ngIf="showSysMsg" class="alert alert-success" role="alert">
-    You successfully delete the contacts of {{unserInfo.firstName}} {{unserInfo.lastName}} !
-</div>
-<h2>{{unserInfo.firstName}} {{unserInfo.lastName}}</h2> 
-<table class="table table-sm">
-    <tr>
-        <td>Home Number:</td>
-        <td>{{unserInfo.phoneNumbers.homeNumber}}</td> 
-    </tr>
-    <tr> 
-        <td>Office Number:</td>
-        <td>{{unserInfo.phoneNumbers.officeNumber}}</td>
-    </tr>
-    <tr> 
-        <td>Work Number:</td>
-        <td>{{unserInfo.phoneNumbers.workNumber}}</td>
-    </tr>
-</table> 
-<button 
-    type="button" 
-    class="btn btn-info" 
-    (click)="editUser()">
-    <i class="fa fa-edit"></i> Edit
-</button>
-
-<button 
-    type="button" 
-    class="btn btn-danger float-right"
-    (click)="deleteUser()">
-    <i class="fa fa-trash"></i>
-    Delete
-</button>
+<app-messages></app-messages>
+<ul>
+    <li>
+        <i class="fa fa-user"></i> Name:
+        <p>{{unserInfo.firstName}}</p>
+    </li>
+    <li>
+        <i class="fa fa-user"></i> Last Name:
+        <p>{{unserInfo.lastName}}</p>
+    </li>
+    <li>
+        <i class="fa fa-home"></i> Home Number:
+        <p>{{unserInfo.phoneNumbers.homeNumber}}</p> 
+    </li>
+    <li>
+        <i class="fa fa-building"></i> Office Number:
+        <p>{{unserInfo.phoneNumbers.officeNumber}}</p> 
+    </li>
+    <li>
+        <i class="fa fa-briefcase"></i> Work Number:
+        <p>{{unserInfo.phoneNumbers.workNumber}}</p> 
+    </li>
+</ul>
+<app-bottom-nav></app-bottom-nav>
 
  

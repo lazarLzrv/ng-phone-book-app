@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackBtnComponent } from './back-btn.component';
+import { BottomNavComponent } from './bottom-nav.component';
 
-describe('BackBtnComponent', () => {
-  let component: BackBtnComponent;
-  let fixture: ComponentFixture<BackBtnComponent>;
+describe('BottomNavComponent', () => {
+  let component: BottomNavComponent;
+  let fixture: ComponentFixture<BottomNavComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackBtnComponent ]
+      declarations: [ BottomNavComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BackBtnComponent);
+    fixture = TestBed.createComponent(BottomNavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,14 +9,21 @@ import { PersonInfo } from '../shared/personInfo.model';
     styleUrls: ['./create-contact.component.scss']
 })
 export class CreateContactComponent implements OnInit {
+    title:string ="Create Contact";
     contactForm: FormGroup; 
     personInfo: PersonInfo; 
     showSysMsg:boolean = false;
     userId:number; 
+    config = { 
+        'wheelSpeed':'0.2',
+        'swipeEasing':false
+    } 
 
     constructor(private formBuilder: FormBuilder, 
                 private dataService: DataService,
-                ) { }
+    ){ 
+        this.dataService.setTitle(this.title)  
+    }
     
 
     ngOnInit() {
@@ -48,9 +55,14 @@ export class CreateContactComponent implements OnInit {
         } 
 
         this.dataService.addToList(this.personInfo) 
-        this.showSysMsg = true;
-        
-        setTimeout(()=>{this.showSysMsg = false;this.reset(); }, 3000);
+
+        this.dataService.setSysMsgStat(true); 
+        this.dataService.setSysMsg('Successfully create '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !");  
+       
+        setTimeout(()=>{
+            this.dataService.setSysMsgStat(false); 
+            this.reset(); }
+            ,3000);
         
     }  
 }

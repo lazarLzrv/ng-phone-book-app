@@ -8,12 +8,21 @@ import { DataService } from '../shared/data.service';
 })
 
 export class ListContactsComponent implements OnInit {
-    listOfUsers: any[] = [];
+    title:string ="Phone Book"
+    listOfUsers: any[] = []; 
     searchBox:string;
+    config = { 
+        'wheelSpeed':'0.2',
+        'swipeEasing':false
+    } 
 
-    constructor(private dataService:DataService ) { }
+    constructor(private dataService:DataService ) { 
+        this.dataService.setTitle(this.title)
+    }
 
     ngOnInit() {
         this.listOfUsers = this.dataService.listOfUsers;
+        
+ 
     }  
 }

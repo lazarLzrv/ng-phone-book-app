@@ -1,82 +1,82 @@
-<app-back-btn></app-back-btn>
-<div *ngIf="showSysMsg" class="alert alert-success" role="alert">
-    You successfully create contacts for {{personInfo.firstName}} {{personInfo.lastName}} !<br>
-    Create a new contact or go back to the list with all contacts!
-</div>
+
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> 
-    <div class="input-group mb-3"> 
+    <perfect-scrollbar style="max-height: 310px;" [config]="config">
+        <app-messages></app-messages>
+        <label for="">
+            <i class="fa fa-user"></i> Name:
+        </label> 
         <input 
-            type="text" 
-            class="form-control" 
-            placeholder="First Name"
-            required 
-            formControlName="firstName">   
-    </div> 
-    <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
-        class="alert alert-danger"> 
-        <div *ngIf="f.firstName.errors.required">
-            This field is required.
-        </div> 
-    </div>
-    <div class="input-group mb-3"> 
+            type="text"   
+            placeholder="Please enter your First Name"
+            formControlName="firstName">    
+        <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.firstName.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <label for="">
+            <i class="fa fa-user"></i> Last Name:
+        </label> 
         <input 
-            type="text" 
-            class="form-control" 
-            formControlName="lastName" 
-            placeholder="Last Name">
-    </div> 
-    <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
-        class="alert alert-danger"> 
-        <div *ngIf="f.lastName.errors.required">
-            This field is required.
-        </div> 
-    </div>
-    <div class="input-group mb-3"> 
+            type="text"  
+            placeholder="Please enter your Last name"
+            formControlName="lastName"> 
+        <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.lastName.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <label for="homeNumber">
+            <i class="fa fa-home"></i> Home Number:
+        </label>  
         <input 
-            type="number" 
-            class="form-control" 
-            formControlName="homeNumber" 
-            placeholder="Home Number"/>
-    </div> 
-    <div *ngIf="f.homeNumber.invalid && (f.homeNumber.dirty || f.homeNumber.touched)"
-        class="alert alert-danger"> 
-        <div *ngIf="f.homeNumber.errors.required">
-            This field is required.
-        </div>   
-    </div>
-    <div class="input-group mb-3"> 
+            type="number"  
+            id="homeNumber" 
+            placeholder="Please enter your Home Number"
+            formControlName="homeNumber"/> 
+        <div *ngIf="f.homeNumber.invalid && (f.homeNumber.dirty || f.homeNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.homeNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <label for="officeNumber">
+                <i class="fa fa-building"></i> Office Number:
+        </label> 
         <input 
-            type="number" 
-            class="form-control" 
-            formControlName="officeNumber" 
-            placeholder="Office Number"/>
-    </div> 
-    <div *ngIf="f.officeNumber.invalid && (f.officeNumber.dirty || f.officeNumber.touched)"
-        class="alert alert-danger"> 
-        <div *ngIf="f.officeNumber.errors.required">
-            This field is required.
-        </div> 
-    </div>
-    <div class="input-group mb-3"> 
-        <input 
-            type="number" 
-            class="form-control" 
-            formControlName="workNumber" 
-            placeholder="Work Number"/>
-    </div> 
-    <div *ngIf="f.workNumber.invalid && (f.workNumber.dirty || f.workNumber.touched)"
-        class="alert alert-danger"> 
-        <div *ngIf="f.workNumber.errors.required">
-            This field is required.
-        </div> 
-    </div>
-   
-    <div class="input-group mb-3"> 
+            type="number"  
+            id="officeNumber" 
+            placeholder="Please enter your Office Number"
+            formControlName="officeNumber"/> 
+        <div *ngIf="f.officeNumber.invalid && (f.officeNumber.dirty || f.officeNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.officeNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+        <label for="workNumber">
+            <i class="fa fa-briefcase"></i> Work Number
+        </label> 
+            <input 
+                type="number"  
+                id="workNumber" 
+                placeholder="Please enter your Work Number"
+                formControlName="workNumber"/> 
+        <div *ngIf="f.workNumber.invalid && (f.workNumber.dirty || f.workNumber.touched)"
+            class="alert alert-danger"> 
+            <div *ngIf="f.workNumber.errors.required">
+                This field is required.
+            </div> 
+        </div>
+    </perfect-scrollbar>   
+    <div class="text-center">
         <input 
         type="submit"
         [disabled]="!contactForm.valid" 
-        class="form-control btn btn-success" 
-        value="Add">
-    </div>
+        class="form-control btn" 
+        value="Create"> 
+    </div> 
 </form>
-
+<app-bottom-nav></app-bottom-nav>

@@ -5,26 +5,29 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonInfo } from '../shared/personInfo.model';
 
 @Component({
-  selector: 'app-edit-contact',
-  templateUrl: './edit-contact.component.html',
-  styleUrls: ['./edit-contact.component.scss']
+    selector: 'app-edit-contact',
+    templateUrl: './edit-contact.component.html',
+    styleUrls: ['./edit-contact.component.scss']
 })
 
 export class EditContactComponent implements OnInit {
+    title:string ="Edit Contact"
     contactForm: FormGroup; 
-    personInfo: PersonInfo;
- 
-    showSysMsg:boolean = false;  
-
+    personInfo: PersonInfo; 
     userId:number;
     status:boolean;
+    config = { 
+        'wheelSpeed':'0.2',
+        'swipeEasing':false
+    } 
 
-    
     constructor (private formBuilder:FormBuilder,
                 private dataService: DataService,
                 private activatedRoute: ActivatedRoute,
                 private router: Router
-       ) { }
+    ) {
+        this.dataService.setTitle(this.title)
+    } 
 
     ngOnInit() {
         this.userId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -36,8 +39,7 @@ export class EditContactComponent implements OnInit {
             homeNumber: [this.personInfo.phoneNumbers.homeNumber, Validators.required], 
             officeNumber: [this.personInfo.phoneNumbers.officeNumber, Validators.required],  
             workNumber: [this.personInfo.phoneNumbers.workNumber, Validators.required],  
-        }); 
- 
+        });  
     } 
 
     get f() { return this.contactForm.controls; }
@@ -53,9 +55,15 @@ export class EditContactComponent implements OnInit {
             } 
         } 
 
-        this.dataService.updateUser(this.personInfo, this.userId)  
-        this.showSysMsg = true;
-        setTimeout(()=>{this.showSysMsg = false;this.router.navigate(['/list']); }, 3000);
-       
+        this.dataService.updateUser(this.personInfo, this.userId)   
+
+        this.dataService.setSysMsg('Successfully edited '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !"); 
+        this.dataService.setSysMsgStat(true); 
+        
+        setTimeout(()=>{
+            this.dataService.setSysMsgStat(false); 
+            this.router.navigate(['/list']); }
+            , 3000);
+        
     }  
 }

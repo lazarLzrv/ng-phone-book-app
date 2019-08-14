@@ -2,4 +2,21 @@
     font-size: 14px;
     margin-right: 5px;
 }
- 
+
+#main-wrapper{
+    background: url(../assets/main-bg.png); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 700px;
+    width: 378px;
+    margin: 0 auto;
+    padding: 107px 58px 102px;
+   
+
+    .inner{
+        position: relative;
+        height: 100%;
+    }
+}
+

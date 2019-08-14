@@ -1,0 +1,20 @@
+<div class="button-wrapper">
+    <a routerLink="/" 
+        class="">
+        <i class="fa fa-chevron-left"></i>
+        <span>Back</span> 
+    </a> 
+    <button *ngIf="!router.url.includes('create-contact') && !router.url.includes('edit-contact')"
+        type="button"  
+        (click)="editUser()">
+        <i class="fa fa-edit"></i>
+        <span>Edit</span> 
+    </button>
+    <button *ngIf="!router.url.includes('create-contact')"
+        type="button"  
+        (click)="deleteUser()">
+        <i class="fa fa-trash"></i>
+        <span>Delete</span> 
+    </button> 
+</div>
+     

@@ -1,34 +1,6 @@
-ul{
-    list-style: none;
-    margin: 0;
-    padding: 0; 
-    display: block;
-   
-
-    li{
-        border-bottom:1px solid #ced4da;
-        padding: 5px;  
-        line-height: 20px;
-        font-size: 14px;
-        margin-bottom: 5px;
-
-        i{
-            color: #888888; 
-            margin-right: 3px;
-            font-size: 12px;
-        }
-
-        p{
-            margin-bottom: 0;
-            font-size: 20px;
-            font-weight: 500; 
-        } 
-    }
-}
-
 .button-wrapper{
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     border:1px solid #ced4da;
     border-radius: 5px;
 
@@ -42,16 +14,22 @@ ul{
         display: block;
         float:left;
         text-align: center;
+        transition: 0.3s;
 
         i{
             line-height: 20px;
         }
+
         &:focus{
             outline:0;
         } 
+
         &:hover{
             text-decoration: none;
+            background: #868686;
+            color: #fff;
         } 
+
         span{
             display: block;
             font-size: 10px;
