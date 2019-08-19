@@ -3,6 +3,7 @@ import { DataService } from '../shared/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonInfo } from '../shared/personInfo.model';
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
     selector: 'app-edit-contact',
@@ -23,6 +24,7 @@ export class EditContactComponent implements OnInit {
 
     constructor (private formBuilder:FormBuilder,
                 private dataService: DataService,
+                private msgService: MessagesService,
                 private activatedRoute: ActivatedRoute,
                 private router: Router
     ) {
@@ -57,11 +59,11 @@ export class EditContactComponent implements OnInit {
 
         this.dataService.updateUser(this.personInfo, this.userId)   
 
-        this.dataService.setSysMsg('Successfully edited '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !"); 
-        this.dataService.setSysMsgStat(true); 
+        this.msgService.setSysMsg('Successfully edited '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !"); 
+        this.msgService.setSysMsgStat(true); 
         
         setTimeout(()=>{
-            this.dataService.setSysMsgStat(false); 
+            this.msgService.setSysMsgStat(false); 
             this.router.navigate(['/list']); }
             , 3000);
         

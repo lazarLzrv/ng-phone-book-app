@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../shared/data.service'; 
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -13,7 +14,8 @@ export class BottomNavComponent implements OnInit {
 
     constructor(private dataService:DataService,
                 private activatedRoute: ActivatedRoute,
-                public router: Router
+                private msgService: MessagesService,
+                public router: Router        
     ) {  
     }
 
@@ -25,11 +27,11 @@ export class BottomNavComponent implements OnInit {
         let answer = confirm('Are You Shure !');
         if(answer){ 
             this.dataService.deleteUser(this.userId);
-            this.dataService.setSysMsgStat(true); 
-            this.dataService.setSysMsg('Successfully deleted contacts info !'); 
+            this.msgService.setSysMsgStat(true); 
+            this.msgService.setSysMsg('Successfully deleted contacts info !'); 
             
             setTimeout(()=>{
-                this.dataService.setSysMsgStat(false); 
+                this.msgService.setSysMsgStat(false); 
                 this.router.navigate(['/list']);}
             ,3000);
         } 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../shared/data.service';
 import { PersonInfo } from '../shared/personInfo.model'; 
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
     selector: 'app-create-contact',
@@ -21,6 +22,8 @@ export class CreateContactComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, 
                 private dataService: DataService,
+                private msgService: MessagesService,
+                
     ){ 
         this.dataService.setTitle(this.title)  
     }
@@ -56,11 +59,11 @@ export class CreateContactComponent implements OnInit {
 
         this.dataService.addToList(this.personInfo) 
 
-        this.dataService.setSysMsgStat(true); 
-        this.dataService.setSysMsg('Successfully create '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !");  
+        this.msgService.setSysMsgStat(true); 
+        this.msgService.setSysMsg('Successfully create '+this.personInfo.firstName +" "+ this.personInfo.lastName +" contacts info !");  
        
         setTimeout(()=>{
-            this.dataService.setSysMsgStat(false); 
+            this.msgService.setSysMsgStat(false); 
             this.reset(); }
             ,3000);
         

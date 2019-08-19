@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../shared/data.service';
+import { Component, OnInit } from '@angular/core'; 
+import { MessagesService } from '../shared/messages.service';
 
 @Component({
   selector: 'app-messages',
@@ -9,14 +9,14 @@ import { DataService } from '../shared/data.service';
 export class MessagesComponent implements OnInit {
     sysMsg:string='';
     sysMsgStat:boolean;
-    constructor(private dataService:DataService) { }
+    constructor(private msgService: MessagesService) { }
 
      ngOnInit() {
         
-        this.dataService.sysMsgText.subscribe((sysMsg) =>{  
+        this.msgService.sysMsgText.subscribe((sysMsg) =>{  
             this.sysMsg = sysMsg; 
         })
-        this.dataService.sysMsgStat.subscribe((sysMsgStat) =>{  
+        this.msgService.sysMsgStat.subscribe((sysMsgStat) =>{  
             this.sysMsgStat = sysMsgStat; 
         })
     }
